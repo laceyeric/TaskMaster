@@ -1,10 +1,15 @@
 import ListService from "../Services/ListService.js";
 import store from "../store.js";
+import List from "../Models/List.js";
 
 //TODO Don't forget to render to the screen after every data change.
 function _drawLists() {
+  let template = '';
+  let lists = store.Lists;
+  lists.forEach(l => { template += l.ListTemplate; })
   console.log(store.Lists);
 
+  document.querySelector("#lists").innerHTML = template;
 }
 
 //Public
