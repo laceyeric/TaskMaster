@@ -18,16 +18,41 @@ export default class List {
     <div class="col-5 mt-3 p-3 border rounded bg-info">
       <h1 class="text-center border-bottom">${this.name}
       </h1>
+      <dl class="ml-5">
+      ${this.getItemTemplates()}
+      </dl>
+      <form onsubmit="app.listController.addItem(event)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter item name" />
+    </div>
+    <div class="form-group">
+      <label for="detail">Detail</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter item details" />
+    </div>
+    </form>
       <button onclick="app.listController.addItem('${this.id}')" class="btn btn-primary">Create item</button>
     </div>`;
   }
-}
+
+  getItemTemplates() {
+    let template = "";
+    this.items.forEach(item => {
+      template += `
+      <li>${item}</li>
+      `
+    })
+  }
 
 
 
-// <form onsubmit="app.listController.addItem(event)">
-// <div class="form-group">
-//   <label for="name">Name</label>
-//   <input type="text" class="form-control" id="name" placeholder="Enter item name" />
-// </div>
-// </form>
+<form onsubmit="app.listController.addItem(event)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Enter item name" />
+  </div>
+  <div class="form-group">
+    <label for="detail">Detail</label>
+    <input type="text" class="form-control" id="name" placeholder="Enter item details" />
+  </div>
+</form>
