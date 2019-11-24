@@ -33,13 +33,14 @@ export default class ListController {
     _drawLists();
   }
 
-  addItem() {
+  addItem(event, listId) {
     event.preventDefault();
     console.log("Did item hit the controller?");
     let formData = event.target;
     let newItem = {
       name: formData.name.value,
-      detail: formData.detail.value,
+      // detail: formData.detail.value,
+      listId: listId,
     }
     ListService.addItem(newItem);
     _drawLists();

@@ -17,6 +17,7 @@ class ListService {
   }
 
   addItem(newItem) {
+    debugger
     console.log("Am i making an item?")
     let item = new Item(newItem);
     let knownList = store.State.lists.find(elem => elem.id == item.listId);

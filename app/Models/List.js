@@ -1,4 +1,5 @@
 import { generateId } from "../utils.js";
+import Item from "./Item.js";
 
 export default class List {
 
@@ -21,17 +22,13 @@ export default class List {
     <h1 class="text-center border-bottom">${this.name}</h1>
       ${this.getItemTemplates()}
       </dl>
-      <form onsubmit="app.listController.addItem(event)">
+      <form onsubmit="app.listController.addItem(event, '${this.id}')">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" placeholder="Enter item name" />
     </div>
-    <div class="form-group">
-      <label for="detail">Detail</label>
-      <input type="text" class="form-control" id="detail" placeholder="Enter item details" />
-    </div>
+    <button type="submit" class="btn btn-primary justify-content-center">Create item</button>
     </form>
-      <button onclick="app.listController.addItem('${this.id}')" class="btn btn-primary justify-content-center">Create item</button>
     </div>`;
   }
 
@@ -39,8 +36,14 @@ export default class List {
     let template = "";
     this.items.forEach(item => {
       template += `
-      <li>${item}</li>
+      <li>${item.name}: ${item.detail}</li>
       `
-    })
+    });
+    return template;
   }
 }
+
+      // <div class="form-group">
+      //   <label for="detail">Detail</label>
+      //   <input type="text" class="form-control" id="detail" placeholder="Enter item details" />
+      // </div>
