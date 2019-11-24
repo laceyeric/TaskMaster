@@ -1,4 +1,5 @@
 import List from "../Models/List.js";
+import Item from "../Models/Item.js";
 import store from "../store.js";
 
 //Public
@@ -8,11 +9,18 @@ class ListService {
   //what methods will you need to do when this class is first 'constructed'?
   //NOTE You will need this code to persist your data into local storage, be sure to call the store method to save after each change
 
-  addList(rawdata) {
-    console.log("Did we get to the Service?");
-    let entry = new List(rawdata);
+  addList(btnList) {
+    let entry = new List(btnList);
 
     store.State.lists.push(entry);
+    store.saveState();
+  }
+
+  addItem(newItem) {
+    console.log("Am i making an item?")
+    let item = new Item(newItem);
+    let knownList = store.State.lists.find(elem => elem.id == item.listId);
+    knownList.items.push(item);
     store.saveState();
   }
 }

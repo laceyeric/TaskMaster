@@ -1,6 +1,7 @@
 import ListService from "../Services/ListService.js";
 import store from "../store.js";
 import List from "../Models/List.js";
+import Item from "../Models/Item.js";
 
 //TODO Don't forget to render to the screen after every data change.
 function _drawLists() {
@@ -21,15 +22,26 @@ export default class ListController {
 
   //TODO: Your app will need the ability to create, and delete both lists and listItems
 
-  addList() {
+  addList(event) {
     event.preventDefault();
-    console.log("add list hits the controller");
-    // TODO get this data from form submission
+    let formData = event.target;
     let btnList = {
-      name: "fakeList",
-      items: []
+      name: formData.name.value,
     }
     ListService.addList(btnList);
+    // formData.reset();
+    _drawLists();
+  }
+
+  addItem() {
+    event.preventDefault();
+    console.log("Did item hit the controller?");
+    let formData = event.target;
+    let newItem = {
+      name: formData.name.value,
+      detail: formData.detail.value,
+    }
+    ListService.addItem(newItem);
     _drawLists();
   }
 }

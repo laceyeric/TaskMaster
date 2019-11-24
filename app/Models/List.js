@@ -16,9 +16,9 @@ export default class List {
   get ListTemplate() {
     return `
     <div class="col-5 mt-3 p-3 border rounded bg-info">
-      <h1 class="text-center border-bottom">${this.name}
-      </h1>
-      <dl class="ml-5">
+    <button class="btn btn-outline btn-danger" onclick="app.listController.removeList('${this.id}')">X</button>
+    <dl class="ml-5">
+    <h1 class="text-center border-bottom">${this.name}</h1>
       ${this.getItemTemplates()}
       </dl>
       <form onsubmit="app.listController.addItem(event)">
@@ -28,10 +28,10 @@ export default class List {
     </div>
     <div class="form-group">
       <label for="detail">Detail</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter item details" />
+      <input type="text" class="form-control" id="detail" placeholder="Enter item details" />
     </div>
     </form>
-      <button onclick="app.listController.addItem('${this.id}')" class="btn btn-primary">Create item</button>
+      <button onclick="app.listController.addItem('${this.id}')" class="btn btn-primary justify-content-center">Create item</button>
     </div>`;
   }
 
@@ -43,16 +43,4 @@ export default class List {
       `
     })
   }
-
-
-
-<form onsubmit="app.listController.addItem(event)">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Enter item name" />
-  </div>
-  <div class="form-group">
-    <label for="detail">Detail</label>
-    <input type="text" class="form-control" id="name" placeholder="Enter item details" />
-  </div>
-</form>
+}

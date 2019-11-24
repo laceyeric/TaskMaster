@@ -16,23 +16,28 @@
             <div class="col">
                 <h1 class="text-white">List Master 3001
                 </h1>
-                <!-- TODO change button to a form for list data entry -->
-                <button onclick="app.listController.addList()" class="btn btn-primary">Create list</button>
             </div>
         </div>
     </header>
 
     <main class="container-fluid h-75 bg-secondary">
+        <!-- this row/col is for the create list object -->
+        <div class="row p-3">
+            <div class="col-6">
+                <form onsubmit="app.listController.addList(event)">
+                    <div class="form-group">
+                        <label for="name">Need a new list?</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter list name" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create list</button>
+                </form>
+            </div>
+        </div>
         <div class="row p-3 justify-content-around" id="lists">
             <!-- put dynamic lists from template here -->
             <div class="col-5 mt-3 p-3 border rounded bg-info">
-                <h1 class="text-center border-bottom">Test List</h1>
-                <form onsubmit="app.listController.addList(event)">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter list name" />
-                    </div>
-                </form>
+                <h1 class="text-center border-bottom">Placeholder List</h1>
+
             </div>
 
 

@@ -3,7 +3,8 @@ import Item from "./Models/Item.js";
 
 let _state = {
   /** @type {List[]} */
-  lists: []
+  lists: [],
+  items: []
 };
 
 //NOTE You should not need to change the code from this point down
