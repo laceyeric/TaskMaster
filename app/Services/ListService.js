@@ -18,9 +18,23 @@ class ListService {
 
   addItem(newItem) {
     let item = new Item(newItem);
-    let knownList = store.State.lists.find(elem => elem.id == item.listId);
+    let knownList = store.Lists.find(elem => elem.id == item.listId);
     knownList.items.push(item);
     store.saveState();
+  }
+
+  // remove a list. compare id from button submit to id on object. note index of true return and splice to remove.
+  removeList(str) {
+    debugger
+    let listIndex = store.Lists;
+    for (let i = 0; i < listIndex.length - 1; i++) {
+      if (listIndex[i].id == str) {
+        listIndex.splice(i, 1);
+        console.log(listIndex);
+        store.saveState();
+        return;
+      }
+    }
   }
 }
 

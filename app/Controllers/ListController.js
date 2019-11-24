@@ -23,6 +23,7 @@ export default class ListController {
   //TODO: Your app will need the ability to create, and delete both lists and listItems
 
   addList(event) {
+    debugger
     event.preventDefault();
     let formData = event.target;
     let btnList = {
@@ -42,6 +43,11 @@ export default class ListController {
       listId: listId,
     }
     ListService.addItem(newItem);
+    _drawLists();
+  }
+
+  removeList(str) {
+    ListService.removeList(str);
     _drawLists();
   }
 }
