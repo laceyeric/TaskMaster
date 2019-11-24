@@ -9,7 +9,7 @@ export default class Item {
     this.listId = data.listId;
   }
 
-  // template for items - to inject on list template
+  // template for items - to inject on list template *not currently being used*
   get itemTemplate() {
     return `
     <dt>'${this.name}'</dt>

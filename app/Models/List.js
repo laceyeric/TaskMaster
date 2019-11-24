@@ -36,7 +36,7 @@ export default class List {
     let template = "";
     this.items.forEach(item => {
       template += `
-      <li>${item.name}: ${item.detail}</li>
+      <li class="justify-content-around">${item.name}: ${item.detail} <div class="btn-group"><button type="button" class="btn btn-outline btn-danger" onclick="app.listController.removeItem('${item.id}','${this.id}')">X</button></div></li>
       `
     });
     return template;
