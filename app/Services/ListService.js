@@ -18,8 +18,9 @@ class ListService {
 
   addItem(newItem) {
     let item = new Item(newItem);
-    let knownList = store.Lists.find(elem => elem.id == item.listId);
+    let knownList = store.State.lists.find(elem => elem.id == item.listId);
     knownList.items.push(item);
+
     store.saveState();
   }
 
