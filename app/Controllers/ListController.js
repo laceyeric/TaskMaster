@@ -54,4 +54,8 @@ export default class ListController {
     ListService.removeItem(id1, id2);
     _drawLists();
   }
+
+  warning() {
+    ListService.warning();
+  }
 }
