@@ -16,12 +16,12 @@ export default class List {
   // This template creates a list card with items(eventually) and new item form
   get ListTemplate() {
     return `
-    <div class="col-5 mt-3 p-3 border rounded bg-info">
+    <div class="col-12 col-sm-6 col-md-4 mt-3 p-3 border rounded bg-info">
     <button class="btn btn-outline btn-danger" onclick="app.listController.removeList('${this.id}')">X</button>
+    <h1 class="text-center border-bottom mb-2">${this.name}</h1>
     <dl class="ml-5">
-    <h1 class="text-center border-bottom">${this.name}</h1>
       ${this.getItemTemplates()}
-      </dl>
+    </dl>
       <form onsubmit="app.listController.addItem(event, '${this.id}')">
     <div class="form-group">
       <label for="name">Name</label>
