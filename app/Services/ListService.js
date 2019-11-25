@@ -25,9 +25,8 @@ class ListService {
 
   // remove a list. compare id from button submit to id on object. note index of true return and splice to remove.
   removeList(str) {
-    debugger
-    let listIndex = store.Lists;
-    for (let i = 0; i < listIndex.length - 1; i++) {
+    let listIndex = store.State.lists;
+    for (let i = 0; i < listIndex.length; i++) {
       if (listIndex[i].id == str) {
         listIndex.splice(i, 1);
         console.log(listIndex);
@@ -36,7 +35,18 @@ class ListService {
       }
     }
   }
-}
 
+  removeItem(id1, id2) {
+    let itemIndex = store.State.lists.find(elem => elem.id == id2);
+    for (let i = 0; i < itemIndex.items.length; i++) {
+      if (itemIndex.items[i].id == id1) {
+        itemIndex.items.splice(i, 1);
+        console.log(itemIndex.items);
+        store.saveState();
+        return;
+      }
+    }
+  }
+}
 const SERVICE = new ListService();
 export default SERVICE;
